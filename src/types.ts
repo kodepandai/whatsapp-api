@@ -1,4 +1,5 @@
 export interface WaConfig {
-  token: string
-  phoneNumberId: string
+  token: string;
+  defaultPhoneNumberId: string;
+  accountId: string;
 }

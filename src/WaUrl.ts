@@ -1,10 +1,26 @@
 import { WaConfig } from "./types";
 
 class WaUrl {
-  constructor(protected config: WaConfig){}
+  protected phoneNumberId?: string;
+  protected accountId?: string;
+  constructor(protected config: WaConfig){
+    this.phoneNumberId = config.defaultPhoneNumberId
+    this.accountId = config.accountId;
+  }
+
+  setPhoneNumberId(phoneNumber: string){
+    this.phoneNumberId = phoneNumber
+  }
+  getPhoneNumberId(){
+    return this.phoneNumberId
+  }
 
   get SEND_MESSAGE(){
-    return `https://graph.facebook.com/v17.0/${this.config.phoneNumberId}/messages`
+    return `https://graph.facebook.com/v18.0/${this.phoneNumberId}/messages`
+  }
+
+  get GET_PHONE_NUMBERS(){
+    return `https://graph.facebook.com/v18.0/${this.accountId}/phone-numbers?access_token=${this.config.token}`
   }
 }
 export default WaUrl
