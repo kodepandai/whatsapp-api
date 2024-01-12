@@ -1,6 +1,6 @@
 import WaFetcher from "./WaFetcher";
 import WaUrl from "./WaUrl";
-import { WaConfig } from "./types";
+import { WaConfig } from "@types";
 
 class Wa {
   public readonly url!: WaUrl
