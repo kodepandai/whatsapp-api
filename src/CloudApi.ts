@@ -1,23 +1,10 @@
 import { MessageType, SendMessageBody, WaConfig } from "@types";
 import WaFetcher from "./WaFetcher";
+import WaApi from "./WaApi";
 
-class CloudApi {
-  protected fetcher!: WaFetcher;
-  protected accountId!: string;
-  protected phoneNumberId!: string;
-  constructor(protected config: WaConfig) {
-    this.fetcher = new WaFetcher(config.token);
-    this.accountId = config.accountId;
-    this.phoneNumberId = config.defaultPhoneNumberId;
-  }
+class CloudApi extends WaApi {
   sendMessage<T extends MessageType>(body: SendMessageBody<T>) {
     this.fetcher.post(this.url.SEND_MESSAGE, body);
-  }
-  setPhoneNumberId(phoneNumber: string) {
-    this.phoneNumberId = phoneNumber;
-  }
-  getPhoneNumberId() {
-    return this.phoneNumberId;
   }
   get url() {
     return {
