@@ -7,7 +7,7 @@ describe("test wa url generator",()=>{
       defaultPhoneNumberId: "phone-number-id",
       accountId: "account-id"
     })
-    expect(wa.url.SEND_MESSAGE).toBe("https://graph.facebook.com/v18.0/phone-number-id/messages")
+    expect(wa.cloudApi.url.SEND_MESSAGE).toBe("https://graph.facebook.com/v18.0/phone-number-id/messages")
   })
   it("can change phone number", ()=>{
     const wa = new Wa({
@@ -15,7 +15,7 @@ describe("test wa url generator",()=>{
       defaultPhoneNumberId: "phone-number-id",
       accountId: "account-id"
     })
-    wa.url.setPhoneNumberId("xxx")
-    expect(wa.url.getPhoneNumberId()).toBe("xxx")
+    wa.cloudApi.setPhoneNumberId("xxx")
+    expect(wa.cloudApi.getPhoneNumberId()).toBe("xxx")
   })
 })
