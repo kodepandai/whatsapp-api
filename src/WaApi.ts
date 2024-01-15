@@ -1,5 +1,6 @@
 import { WaConfig } from "@types";
 import WaFetcher from "./WaFetcher";
+import Wa from "Wa";
 
 abstract class WaApi {
   protected fetcher!: WaFetcher;
@@ -16,7 +17,7 @@ abstract class WaApi {
   getPhoneNumberId() {
     return this.phoneNumberId;
   }
-  get url(): Record<string, string> {
+  get url(): Record<string, string | Function> {
     return {};
   }
 }

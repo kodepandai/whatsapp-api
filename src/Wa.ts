@@ -4,8 +4,10 @@ import { WaConfig } from "@types";
 import CloudApi from "./CloudApi";
 
 class Wa {
-  public readonly cloudApi: CloudApi;
   protected readonly fetcher!: WaFetcher;
+  public static readonly apiVersion: string = "v18.0"
+
+  public readonly cloudApi: CloudApi;
   public readonly business: Business;
 
   constructor(protected config: WaConfig) {
