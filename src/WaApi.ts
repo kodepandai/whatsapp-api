@@ -4,7 +4,7 @@ import WaFetcher from "./WaFetcher";
 abstract class WaApi {
   protected fetcher!: WaFetcher;
   protected accountId!: string;
-  protected phoneNumberId!: string;
+  protected phoneNumberId?: string;
   constructor(protected config: WaConfig) {
     this.fetcher = new WaFetcher(config.token);
     this.accountId = config.accountId;
