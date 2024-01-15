@@ -5,12 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
+  '@polka/parse':
+    specifier: 1.0.0-next.24
+    version: 1.0.0-next.24
   '@types/node':
     specifier: ^20.11.0
     version: 20.11.0
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
+  polka:
+    specifier: 1.0.0-next.24
+    version: 1.0.0-next.24
   tsup:
     specifier: ^8.0.1
     version: 8.0.1(typescript@5.3.3)
@@ -306,6 +312,14 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@polka/parse@1.0.0-next.24:
+    resolution: {integrity: sha512-Bn4Om1TA7iBrN93IttmEqqFu5gDMptSDmtbZoOr58OxCenm+6MvVlFxKP0vFvogOiycMiFDupAkNyhi3yM5PMQ==}
+    dev: true
+
+  /@polka/url@1.0.0-next.24:
+    resolution: {integrity: sha512-2LuNTFBIO0m7kKIQvvPHN6UE63VjpmL9rnEEaOOaiSPbZK+zUOYIzBAWcED+3XYzhYsd/0mD57VdxAEqqV52CQ==}
+    dev: true
 
   /@rollup/rollup-android-arm-eabi@4.9.4:
     resolution: {integrity: sha512-ub/SN3yWqIv5CWiAZPHVS1DloyZsJbtXmX4HxUTIpS0BHm9pW5iYBo2mIZi+hE3AeiTzHz33blwSnhdUo+9NpA==}
@@ -1103,6 +1117,14 @@ packages:
       pathe: 1.1.2
     dev: true
 
+  /polka@1.0.0-next.24:
+    resolution: {integrity: sha512-i0EB3KPaALOLBC8K27UhPzzDyhsrn6KxDu0+agIz6ZgA2oNqqQjxBn+z9w2Ba4obV/PoqEJtyfzBkYgqKEJYiA==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@polka/url': 1.0.0-next.24
+      trouter: 4.0.0
+    dev: true
+
   /postcss-load-config@4.0.2:
     resolution: {integrity: sha512-bSVhyJGL00wMVoPUzAVAnbEoWyqRxkjv64tUl427SKnPrENtq6hJwUojroMz2VB+Q1edmi4IfrAPpami5VVgMQ==}
     engines: {node: '>= 14'}
@@ -1155,6 +1177,11 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+    dev: true
+
+  /regexparam@3.0.0:
+    resolution: {integrity: sha512-RSYAtP31mvYLkAHrOlh25pCNQ5hWnT106VukGaaFfuJrZFkGRX5GhUAdPqpSDXxOhA2c4akmRuplv1mRqnBn6Q==}
+    engines: {node: '>=8'}
     dev: true
 
   /resolve-from@5.0.0:
@@ -1351,6 +1378,13 @@ packages:
   /tree-kill@1.2.2:
     resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
     hasBin: true
+    dev: true
+
+  /trouter@4.0.0:
+    resolution: {integrity: sha512-bwwr76BThfiVwAFZqks5cJ+VoKNM3/2Yg1ZwJslkdmAUQ6S0UNoCoGYFDxdw+u1skfexggdmD2p35kW5Td4Cug==}
+    engines: {node: '>=6'}
+    dependencies:
+      regexparam: 3.0.0
     dev: true
 
   /ts-interface-checker@0.1.13:

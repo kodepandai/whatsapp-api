@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "test": "vitest"
+    "test": "vitest",
+    "hook": "node ./webhook/server.mjs"
   },
   "main": "dist/index.cjs",
   "types": "dist/index.d.ts",
@@ -21,8 +22,10 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@polka/parse": "1.0.0-next.24",
     "@types/node": "^20.11.0",
     "dotenv": "^16.3.1",
+    "polka": "1.0.0-next.24",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
     "vitest": "^1.1.3"
