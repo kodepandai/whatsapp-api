@@ -1,4 +1,5 @@
 import { AnalyticFields, ConfirmTemplateAnalyticResponse, ConversationAnalyticParams, DisableButtonAnalyticResponse, GetAnalyticResponse, MessagingAnalyticParams, TemplateAnalyticResponse, TemplateGranularity, TemplateMetricTypes } from "@types"
+import WaApi from "WaApi"
 
 export interface TemplateAnalyticParams {
   start: Date
@@ -8,7 +9,7 @@ export interface TemplateAnalyticParams {
   metric_types: TemplateMetricTypes
 }
 
-export default class Analytic {
+export default class Analytic extends WaApi {
 
   confirmTemplateAnalytics(): ConfirmTemplateAnalyticResponse {
 
