@@ -1,4 +1,4 @@
-import { Country } from "country.enum"
+import { Country } from "../country.enum"
 
 export enum AnalyticFields {
   analytics = 'analytics',

@@ -1,6 +1,6 @@
 import { CreateQRCodeParams, CreateQRCodeResponse, GetQRCodeResponse } from "./@types";
-import Wa from "Wa"
-import WaApi from "WaApi"
+import Wa from "./Wa"
+import WaApi from "./WaApi"
 
 export default class QRCode extends WaApi {
   createQRCode(phoneNumberId: string, body: CreateQRCodeParams): Promise<CreateQRCodeResponse> {

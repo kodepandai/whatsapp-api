@@ -1,4 +1,4 @@
-import { WaConfig } from "@types";
+import { WaConfig } from "./@types";
 import type WaFetcher from "./WaFetcher";
 
 abstract class WaApi {

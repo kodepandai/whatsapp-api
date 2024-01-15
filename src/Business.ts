@@ -1,9 +1,10 @@
-import Analytic from "Analytic"
-import PhoneMigration from "PhoneMigration"
-import PhoneNumber from "PhoneNumber"
-import QRCode from "QRCode"
-import Signal from "Signal"
-import WaApi from "WaApi"
+import Analytic from "./Analytic"
+import PhoneMigration from "./PhoneMigration"
+import PhoneNumber from "./PhoneNumber"
+import QRCode from "./QRCode"
+import Signal from "./Signal"
+import Template from "./Template"
+import WaApi from "./WaApi"
 
 /*
  * Business management api 
@@ -17,7 +18,7 @@ export class Business extends WaApi {
   public PhoneMigration = new PhoneMigration(this.config, this.fetcher)
   public QRCode = new QRCode(this.config, this.fetcher)
   public Signal = new Signal(this.config, this.fetcher)
-  // public Template = class {
+  public Template = new Template(this.config, this.fetcher)
   //
   //   constructor() { }
   //   async createMessageTemplate() { }

@@ -1,5 +1,5 @@
-import Wa from "Wa"
-import WaApi from "WaApi"
+import Wa from "./Wa"
+import WaApi from "./WaApi"
 
 export default class Signal extends WaApi {
   get url() {

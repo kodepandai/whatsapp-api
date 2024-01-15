@@ -1,4 +1,4 @@
-import { MessageType, SendMessageBody } from "@types";
+import { MessageType, SendMessageBody } from "./@types";
 import WaApi from "./WaApi";
 
 class CloudApi extends WaApi {

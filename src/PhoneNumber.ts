@@ -1,7 +1,7 @@
-import { AnalyticFields, ConfirmTemplateAnalyticResponse, ConversationAnalyticParams, DisableButtonAnalyticResponse, GetAnalyticResponse, MessagingAnalyticParams, TemplateAnalyticResponse, TemplateGranularity, TemplateMetricTypes } from "@types"
+import { AnalyticFields, ConfirmTemplateAnalyticResponse, ConversationAnalyticParams, DisableButtonAnalyticResponse, GetAnalyticResponse, MessagingAnalyticParams, TemplateAnalyticResponse, TemplateGranularity, TemplateMetricTypes } from "./@types"
 import { GetAllPhoneNumbersResponse, GetPhoneNumberResponse } from "./@types"
-import Wa from "Wa"
-import WaApi from "WaApi"
+import Wa from "./Wa"
+import WaApi from "./WaApi"
 
 export interface TemplateAnalyticParams {
   start: Date
