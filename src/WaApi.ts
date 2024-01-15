@@ -1,13 +1,10 @@
 import { WaConfig } from "@types";
-import WaFetcher from "./WaFetcher";
-import Wa from "Wa";
+import type WaFetcher from "./WaFetcher";
 
 abstract class WaApi {
-  protected fetcher!: WaFetcher;
   protected accountId!: string;
   protected phoneNumberId?: string;
-  constructor(protected config: WaConfig) {
-    this.fetcher = new WaFetcher(config.token);
+  constructor(protected config: WaConfig, protected fetcher: WaFetcher) {
     this.accountId = config.accountId;
     this.phoneNumberId = config.defaultPhoneNumberId;
   }

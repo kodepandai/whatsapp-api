@@ -12,8 +12,8 @@ class Wa {
 
   constructor(protected config: WaConfig) {
     this.fetcher = new WaFetcher(config.token);
-    this.cloudApi = new CloudApi(config)
-    this.business = new Business(config)
+    this.cloudApi = new CloudApi(config, this.fetcher)
+    this.business = new Business(config, this.fetcher)
   }
 }
 export default Wa;

@@ -12,11 +12,11 @@ import WaApi from "WaApi"
 export class Business extends WaApi {
 
 
-  public Analytics = new Analytic(this.config)
-  public PhoneNumber = new PhoneNumber(this.config)
-  public PhoneMigration = new PhoneMigration(this.config)
-  public QRCode = new QRCode(this.config)
-  public Signal = new Signal(this.config)
+  public Analytics = new Analytic(this.config, this.fetcher)
+  public PhoneNumber = new PhoneNumber(this.config, this.fetcher)
+  public PhoneMigration = new PhoneMigration(this.config, this.fetcher)
+  public QRCode = new QRCode(this.config, this.fetcher)
+  public Signal = new Signal(this.config, this.fetcher)
   // public Template = class {
   //
   //   constructor() { }
