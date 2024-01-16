@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { Wa } from "../src";
+import { Wa } from "../../src";
 describe.skip("test send message", () => {
   it("can send text message", async () => {
     const wa = new Wa({

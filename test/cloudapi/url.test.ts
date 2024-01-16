@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vitest"
-import { Wa } from "../src"
+import { Wa } from "../../src"
 describe("test wa url generator",()=>{
   it("can generate SEND_MESSAGE url",()=>{
     const wa = new Wa({
