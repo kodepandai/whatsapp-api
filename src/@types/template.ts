@@ -5,6 +5,24 @@ export enum TemplateCategory {
   MARKETING = "MARKETING",
   UTILITY = "UTILITY",
 }
+export enum QualityScore {
+  GREEN = "GREEN",
+  YELLOW = "YELLOW",
+  RED = "RED",
+  UNKNOWN = "UNKNOWN",
+}
+
+export enum TemplateStatus {
+  APPROVED = "APPROVED",
+  PENDING = "PENDING",
+  REJECTED = "REJECTED",
+  IN_APPEAL = "IN_APPEAL",
+  DELETION = "DELETION",
+  DELETED = "DELETED",
+  DISABLED = "DISABLED",
+  PAUSED = "PAUSED",
+  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
+}
 
 export interface CreateTemplateMessageParams {
   name: string;
@@ -97,3 +115,13 @@ type FlowsButton = {
   flow_action: "navigate" | "data_exchange";
   navigate_screen: string;
 };
+
+export interface GetTemplateMessageParams {
+  category?: TemplateCategory[],
+  content?: string;
+  language?: Language[];
+  name?: string;
+  name_or_content?: string;
+  quality_score?: QualityScore[],
+  status?: TemplateStatus[]
+}

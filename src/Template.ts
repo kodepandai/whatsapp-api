@@ -1,4 +1,4 @@
-import { CreateTemplateMessageParams } from "./@types/template";
+import { CreateTemplateMessageParams, GetTemplateMessageParams } from "./@types/template";
 import Wa from "./Wa";
 import WaApi from "./WaApi";
 
@@ -10,9 +10,14 @@ export default class Template extends WaApi {
     }
     return this.fetcher.post(this.url.CREATE_TEMPLATE, param)
   }
+
+  public getTemplates(param?: GetTemplateMessageParams){
+    return this.fetcher.get(this.url.CREATE_TEMPLATE, param)
+  }
   get url(){
     return {
-      CREATE_TEMPLATE: `https://graph.facebook.com/${Wa.apiVersion}/${this.accountId}/message_templates`
+      CREATE_TEMPLATE: `https://graph.facebook.com/${Wa.apiVersion}/${this.accountId}/message_templates`,
+      GET_TEMPLATE: `https://graph.facebook.com/${Wa.apiVersion}/${this.accountId}/message_templates`,
     }
   }
 }
