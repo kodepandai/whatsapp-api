@@ -5,6 +5,7 @@ describe("test reading environment variable",()=>{
     expect(process.env.TOKEN).toBeDefined()
     expect(process.env.DEFAULT_PHONE_NUMBER_ID).toBeDefined();
     expect(process.env.ACCOUNT_ID).toBeDefined();
+    expect(process.env.APP_ID).toBeDefined();
     // const wa = new Wa({
     //   token: "token",
     //   defaultPhoneNumberId: "phone-number-id",

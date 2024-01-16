@@ -8,6 +8,7 @@ describe("Manage Message Template", () => {
       token: process.env.TOKEN || "",
       defaultPhoneNumberId: process.env.DEFAULT_PHONE_NUMBER_ID || "",
       accountId: process.env.ACCOUNT_ID || "",
+      appId: process.env.APP_ID || "",
     });
     const res = await wa.business.Template.createTemplate({
       name: "open_liveshop",

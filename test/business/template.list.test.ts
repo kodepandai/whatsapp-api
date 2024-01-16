@@ -7,7 +7,8 @@ describe.skip("Get Message Template", () => {
     const wa = new Wa({
       token: process.env.TOKEN || "",
       defaultPhoneNumberId: process.env.DEFAULT_PHONE_NUMBER_ID || "",
-      accountId: process.env.ACCOUNT_ID || "",
+      accountId: process.env.account_id || "",
+      appId: process.env.APP_ID||""
     });
     const res = await wa.business.Template.getTemplates();
     const json = await res.json();
@@ -30,6 +31,7 @@ describe.skip("Get Message Template", () => {
       token: process.env.TOKEN || "",
       defaultPhoneNumberId: process.env.DEFAULT_PHONE_NUMBER_ID || "",
       accountId: process.env.ACCOUNT_ID || "",
+      appId: process.env.APP_ID||""
     });
     const res = await wa.business.Template.getTemplates({
       language: [Language.English_US],
