@@ -9,9 +9,9 @@ export enum TemplateCategory {
 export interface CreateTemplateMessageParams {
   name: string;
   category: TemplateCategory;
-  allow_category_change: boolean;
+  allow_category_change?: boolean;
   language: Language;
-  components: BodyComponent | HeaderComponent | ButtonComponent;
+  components: (BodyComponent | HeaderComponent | ButtonComponent)[];
 }
 
 type BodyComponent = {

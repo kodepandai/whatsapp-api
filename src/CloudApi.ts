@@ -1,4 +1,5 @@
 import { MessageType, SendMessageBody } from "./@types";
+import Wa from "./Wa";
 import WaApi from "./WaApi";
 
 class CloudApi extends WaApi {
@@ -18,7 +19,7 @@ class CloudApi extends WaApi {
   }
   get url() {
     return {
-      SEND_MESSAGE: `https://graph.facebook.com/v18.0/${this.phoneNumberId}/messages`,
+      SEND_MESSAGE: `https://graph.facebook.com/${Wa.apiVersion}/${this.phoneNumberId}/messages`,
     };
   }
 }

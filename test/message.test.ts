@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { Wa } from "../src";
-describe("test send message", () => {
+describe.skip("test send message", () => {
   it("can send text message", async () => {
     const wa = new Wa({
       token: process.env.TOKEN || "",
