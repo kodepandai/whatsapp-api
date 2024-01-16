@@ -1,4 +1,4 @@
-import WaApi from "WaApi";
+import WaApi from "./WaApi";
 
 export default class PhoneMigration extends WaApi {
 

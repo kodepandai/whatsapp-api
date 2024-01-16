@@ -1,4 +1,4 @@
-import { WaConfig } from "@types";
+import { WaConfig } from "./@types";
 
 class WaUrl {
   protected phoneNumberId?: string;

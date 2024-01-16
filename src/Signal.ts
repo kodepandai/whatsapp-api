@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import Wa from "Wa"
 import WaApi from "WaApi"
+=======
+import Wa from "./Wa"
+import WaApi from "./WaApi"
+>>>>>>> b8b43194ecca8a594ad0287ffc476943f41e7c38
 
 export default class Signal extends WaApi {
   get url() {
