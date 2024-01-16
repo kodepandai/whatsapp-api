@@ -1,4 +1,4 @@
-import { Business } from "Business";
+import { Business } from "./Business"
 import WaFetcher from "./WaFetcher";
 import { WaConfig } from "./@types";
 import CloudApi from "./CloudApi";
