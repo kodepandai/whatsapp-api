@@ -10,7 +10,7 @@ describe("Manage Message Template", () => {
       accountId: process.env.ACCOUNT_ID || "",
       appId: process.env.APP_ID || "",
     });
-    const res = await wa.business.Template.createTemplate({
+    const json = await wa.business.Template.createTemplate({
       name: "open_liveshop",
       language: Language.Indonesian,
       category: TemplateCategory.MARKETING,
@@ -28,8 +28,7 @@ describe("Manage Message Template", () => {
           },
         },
       ],
-    });
-    const json = await res.json();
+    }) as any;
     if (json.error) {
       expect(json).toHaveProperty("error.message");
       expect(json).toHaveProperty("error.type");

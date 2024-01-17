@@ -10,8 +10,7 @@ describe.skip("Get Message Template", () => {
       accountId: process.env.account_id || "",
       appId: process.env.APP_ID||""
     });
-    const res = await wa.business.Template.getTemplates();
-    const json = await res.json();
+    const json = await wa.business.Template.getTemplates() as any
     expect(json).toHaveProperty("data")
     expect(json).toHaveProperty("paging.cursors.before")
     expect(json).toHaveProperty("paging.cursors.after")
@@ -33,12 +32,11 @@ describe.skip("Get Message Template", () => {
       accountId: process.env.ACCOUNT_ID || "",
       appId: process.env.APP_ID||""
     });
-    const res = await wa.business.Template.getTemplates({
+    const json = await wa.business.Template.getTemplates({
       language: [Language.English_US],
       status: [TemplateStatus.APPROVED],
       quality_score: [QualityScore.UNKNOWN]
-    });
-    const json = await res.json();
+    }) as any;
     expect(json).toHaveProperty("data")
     expect(json).toHaveProperty("paging.cursors.before")
     expect(json).toHaveProperty("paging.cursors.after")

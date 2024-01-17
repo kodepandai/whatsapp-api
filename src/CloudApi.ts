@@ -9,12 +9,15 @@ class CloudApi extends WaApi {
     recipient_type,
     ...data
   }: SendMessageBody<T>) {
-    return this.fetcher.post(this.url.SEND_MESSAGE, {
-      messaging_product: "whatsapp",
-      [type]: data,
-      to,
-      recipient_type,
-      type,
+    return this.fetcher.post({
+      url: this.url.SEND_MESSAGE,
+      body: {
+        messaging_product: "whatsapp",
+        [type]: data,
+        to,
+        recipient_type,
+        type,
+      },
     });
   }
   get url() {

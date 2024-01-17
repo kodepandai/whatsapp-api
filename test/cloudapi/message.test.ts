@@ -8,12 +8,11 @@ describe.skip("test send message", () => {
       accountId: process.env.ACCOUNT_ID || "",
       appId: process.env.APP_ID || "",
     });
-    const res = await wa.cloudApi.sendMessage({
+    const json = await wa.cloudApi.sendMessage({
       type: "text",
       to: process.env.TEST_TARGET_PHONE_NUMBER||'',
       body: "message from vitest",
-    });
-    const json = await res.json();
+    }) as any;
     expect(json.messaging_product).toBe("whatsapp")
     expect(json.contacts[0]).toMatchObject({input:process.env.TEST_TARGET_PHONE_NUMBER, wa_id: process.env.TEST_TARGET_PHONE_NUMBER})
     expect(json.messages[0]).toHaveProperty("id")

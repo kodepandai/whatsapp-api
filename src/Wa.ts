@@ -18,5 +18,13 @@ class Wa {
     this.business = new Business(config, this.fetcher)
     this.graph = new Graph(config, this.fetcher)
   }
+  generateAccessToken(){
+    return this.fetcher.get({
+    url: `https://graph.facebook.com/oauth/access_token`, params: {
+        client_id: this.config.appId,
+        client_secret: "cc1cf1d71d0c64b0e8e0bd1870c147e2",
+        grant_type: "client_credentials"
+      }})
+  }
 }
 export default Wa;
