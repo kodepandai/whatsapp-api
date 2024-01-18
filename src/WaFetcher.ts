@@ -11,7 +11,7 @@ interface FetcherParams {
 }
 class WaFetcher {
   constructor(protected token?: string) { }
-  get<R = Response>(param: Omit<FetcherParams, "method">) {
+  get<R = unknown>(param: Omit<FetcherParams, "method">) {
     return this.call<R>(param);
   }
   post<R = unknown>(param: Omit<FetcherParams, "method">) {
@@ -27,7 +27,7 @@ class WaFetcher {
     return this.call<R>({ method: "PUT", ...param });
   }
 
-  private async call<R = Response>({
+  private async call<R>({
     url,
     method = "GET",
     params,
@@ -51,7 +51,6 @@ class WaFetcher {
     if (forceFormData && typeof body == "object") {
       body = this.generateFormData(body as Record<string, any>);
     }
-    console.log({url,method,body,headers})
     const res = await fetch(url, {
       method,
       body: body as BodyInit,
@@ -60,7 +59,7 @@ class WaFetcher {
     if (returnJson) {
       return (await res.json()) as R;
     }
-    return res
+    return res as R;
   }
 
   private generateFormData<T extends Record<string, any>>(payload: T) {
