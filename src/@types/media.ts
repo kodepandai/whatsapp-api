@@ -9,3 +9,6 @@ export interface GetMediaResponse {
   file_size: number;
   id: string;
 }
+export interface DeleteMediaResponse {
+  success: true
+}

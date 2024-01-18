@@ -2,7 +2,7 @@ import { readFile } from "fs/promises";
 import WaApi from "../WaApi";
 import Wa from "../Wa";
 import mime from "mime";
-import { GetMediaResponse, UploadMediaResponse } from "../@types";
+import { DeleteMediaResponse, GetMediaResponse, UploadMediaResponse } from "../@types";
 
 export default class Media extends WaApi {
   async uploadMedia(path: string) {
@@ -25,11 +25,28 @@ export default class Media extends WaApi {
       },
     });
   }
+  downloadMedia(mediaUrl: string){
+    return this.fetcher.get({
+      returnJson: false,
+      isJson: false,
+      url: mediaUrl
+    })
+  }
+  deleteMedia(mediaId: string){
+    return this.fetcher.delete<DeleteMediaResponse>({
+      url: this.url.DELETE_MEDIA(mediaId),
+      params: {
+        phone_number_id: this.phoneNumberId,
+      }
+    })
+  }
 
   get url() {
     return {
       UPLOAD_MEDIA: `https://graph.facebook.com/${Wa.apiVersion}/${this.phoneNumberId}/media`,
       GET_MEDIA_URL: (mediaId: string) =>
+        `https://graph.facebook.com/${Wa.apiVersion}/${mediaId}`,
+      DELETE_MEDIA: (mediaId: string) =>
         `https://graph.facebook.com/${Wa.apiVersion}/${mediaId}`,
     };
   }
