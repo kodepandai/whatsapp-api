@@ -61,3 +61,9 @@ interface AllMessageObject {
 type MessageObject<T extends MessageType> = T extends keyof AllMessageObject
   ? AllMessageObject[T]
   : {};
+
+export interface SendMessageResponse {
+  messaging_product: string;
+  contacts: {input:string, wa_id: string}[];
+  messages: {id: string}[];
+}

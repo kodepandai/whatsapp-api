@@ -1,4 +1,4 @@
-import { MessageType, SendMessageBody } from "../@types";
+import { MessageType, SendMessageBody, SendMessageResponse } from "../@types";
 import Wa from "../Wa";
 import WaApi from "../WaApi";
 
@@ -9,7 +9,7 @@ export default class Message extends WaApi {
     recipient_type,
     ...data
   }: SendMessageBody<T>) {
-    return this.fetcher.post({
+    return this.fetcher.post<SendMessageResponse>({
       url: this.url.SEND_MESSAGE,
       body: {
         messaging_product: "whatsapp",

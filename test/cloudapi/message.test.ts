@@ -12,7 +12,7 @@ describe.skip("test send message", () => {
       type: "text",
       to: process.env.TEST_TARGET_PHONE_NUMBER||'',
       body: "message from vitest",
-    }) as any;
+    });
     expect(json.messaging_product).toBe("whatsapp")
     expect(json.contacts[0]).toMatchObject({input:process.env.TEST_TARGET_PHONE_NUMBER, wa_id: process.env.TEST_TARGET_PHONE_NUMBER})
     expect(json.messages[0]).toHaveProperty("id")
