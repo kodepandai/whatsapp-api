@@ -1,29 +1,13 @@
+import { readFile } from "fs/promises";
 import { MessageType, SendMessageBody } from "./@types";
 import Wa from "./Wa";
 import WaApi from "./WaApi";
+import mime from "mime";
+import Media from "./cloudApi/Media";
+import Message from "./cloudApi/Message";
 
 class CloudApi extends WaApi {
-  sendMessage<T extends MessageType>({
-    type,
-    to,
-    recipient_type,
-    ...data
-  }: SendMessageBody<T>) {
-    return this.fetcher.post({
-      url: this.url.SEND_MESSAGE,
-      body: {
-        messaging_product: "whatsapp",
-        [type]: data,
-        to,
-        recipient_type,
-        type,
-      },
-    });
-  }
-  get url() {
-    return {
-      SEND_MESSAGE: `https://graph.facebook.com/${Wa.apiVersion}/${this.phoneNumberId}/messages`,
-    };
-  }
+  public Media = new Media(this.config, this.fetcher);
+  public Message = new Message(this.config, this.fetcher);
 }
 export default CloudApi;

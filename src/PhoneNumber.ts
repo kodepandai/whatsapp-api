@@ -13,12 +13,16 @@ export interface TemplateAnalyticParams {
 
 export default class PhoneNumber extends WaApi {
 
-  async getSinglePhoneNumber(phoneNumberId: string): Promise<GetPhoneNumberResponse> {
-    return this.fetcher.get(this.url.Get_SINGLE_PHONE_NUMBER(phoneNumberId)) as unknown as GetPhoneNumberResponse
+  async getSinglePhoneNumber(phoneNumberId: string) {
+    return this.fetcher.get<GetPhoneNumberResponse>({
+      url: this.url.Get_SINGLE_PHONE_NUMBER(phoneNumberId)
+    });
   }
 
-  async getPhoneNumbers(): Promise<GetAllPhoneNumbersResponse> {
-    return this.fetcher.get(this.url.GET_PHONE_NUMBERS) as unknown as GetAllPhoneNumbersResponse
+  async getPhoneNumbers() {
+    return this.fetcher.get<GetAllPhoneNumbersResponse>({
+      url: this.url.GET_PHONE_NUMBERS
+    });
   }
   get url() {
     return {
