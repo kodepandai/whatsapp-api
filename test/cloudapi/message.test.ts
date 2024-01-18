@@ -8,7 +8,7 @@ describe.skip("test send message", () => {
       accountId: process.env.ACCOUNT_ID || "",
       appId: process.env.APP_ID || "",
     });
-    const json = await wa.cloudApi.sendMessage({
+    const json = await wa.cloudApi.Message.sendMessage({
       type: "text",
       to: process.env.TEST_TARGET_PHONE_NUMBER||'',
       body: "message from vitest",
