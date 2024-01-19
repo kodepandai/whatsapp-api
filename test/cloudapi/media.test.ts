@@ -18,7 +18,7 @@ beforeAll(() => {
 describe.sequential("Cloud Api Media test", () => {
   it.skip("can upload file", async () => {
     const json = await wa.cloudApi.Media.uploadMedia(
-      path.join(process.cwd(), "cat.jpg"),
+      path.join(process.cwd(), "example", "cat.jpg"),
     );
     expect(json).toHaveProperty("id");
     mediaId = json.id;
@@ -35,7 +35,7 @@ describe.sequential("Cloud Api Media test", () => {
   });
   it.todo("can download media", async () => {
     // TODO: ini belum bisa get binarynya
-    const res = await wa.cloudApi.Media.downloadMedia(mediaUrl);
+    const res = await wa.cloudApi.Media.downloadMedia(mediaUrl) as Response
     console.log(await res.blob())
   });
   it.skip("can delete media", async ()=>{
