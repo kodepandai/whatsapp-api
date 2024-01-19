@@ -10,7 +10,7 @@ describe.skip("Resumable Api test", () => {
       accountId: process.env.ACCOUNT_ID || "",
       appId: process.env.APP_ID || "",
     });
-    const path = _path.join(process.cwd(), ".env.example");
+    const path = _path.join(process.cwd(), "example", "cat.jpg");
     const json = (await wa.graph.Resumable.createUploadSession(path)) as any;
     expect(json).toHaveProperty("id");
 

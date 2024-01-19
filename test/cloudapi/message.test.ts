@@ -25,7 +25,7 @@ describe("test send message", () => {
   it.skip("can send image message", async()=>{
     // upload image first using media api
     const uploaded = await wa.cloudApi.Media.uploadMedia(
-      path.join(process.cwd(), "cat.jpg"),
+      path.join(process.cwd(), "example", "cat.jpg"),
     );
     const res = await wa.cloudApi.Message.sendMessage({
       type: "image",
