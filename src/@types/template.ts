@@ -43,7 +43,7 @@ type BodyComponent = {
    * @example body_text: ["the end of August","25OFF","25%"]
    * */
   example?: {
-    body_text: string[];
+    body_text: string[][]
   };
 };
 type HeaderComponent = {
@@ -79,7 +79,7 @@ type HeaderLocation = {
   };
 };
 type ButtonComponent = {
-  type: "BUTTON";
+  type: "BUTTONS";
   buttons: (
     | PhoneButton
     | UrlButton
@@ -124,4 +124,10 @@ export interface GetTemplateMessageParams {
   name_or_content?: string;
   quality_score?: QualityScore[],
   status?: TemplateStatus[]
+}
+
+export interface CreateTemplateResponse {
+  id: string;
+  status: string;
+  category: string;
 }

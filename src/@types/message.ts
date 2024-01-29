@@ -41,7 +41,7 @@ interface AllMessageObject {
   };
   sticker: MediaObject;
   template: {
-    namespace: string;
+    namespace?: string;
     name: string;
     language: {
       code: string;
