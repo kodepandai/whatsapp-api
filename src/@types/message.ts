@@ -7,6 +7,7 @@ export type MessageType =
   | "sticker"
   | "template"
   | "reaction"
+  | "interactive"
   | "hsm";
 
 export type SendMessageBody<T extends MessageType> = {
@@ -19,12 +20,12 @@ export type SendMessageBody<T extends MessageType> = {
 
 type MediaObject =
   | {
-      /** media ObjectID*/
-      id: string;
-    }
+    /** media ObjectID*/
+    id: string;
+  }
   | {
-      link: string;
-    };
+    link: string;
+  };
 type Caption = { caption?: string };
 interface AllMessageObject {
   text: {
@@ -35,7 +36,8 @@ interface AllMessageObject {
   image: MediaObject & Caption;
   audio: MediaObject;
   video: MediaObject & Caption;
-  document: MediaObject & Caption & {
+  document: MediaObject &
+  Caption & {
     /** The extension of the filename will specify what format the document is displayed as in WhatsApp.*/
     filename?: string;
   };
@@ -55,6 +57,63 @@ interface AllMessageObject {
      * */
     emoji: string;
   };
+  interactive: {
+    interactive_type:
+    | "button"
+    | "list"
+    | "catalog_message"
+    | "product"
+    | "product_list"
+    | "flow";
+    action: {
+      /** required for list message */
+      button?: string;
+      /** required for reply buttons, upto 3 buttons */
+      buttons?: {
+        type: "reply";
+        reply: {
+          title: string;
+          id: string;
+        };
+      }[];
+      catalog_id?: string;
+      product_retailer_id?: string;
+      /** required for list message and product message */
+      sections?: {
+        product_items?: {
+          product_retailer_id: string;
+        }[];
+        rows?: {
+          id: string;
+          title: string;
+          description?: string;
+        }[];
+        /** required if message has more than 1 section */
+        title?: string;
+      }[];
+      /** optional for flows */
+      mode?: "draft" | "published";
+      flow_message_version?: string;
+      flow_token?: string;
+      flow_id?: string;
+      flow_cta?: string;
+      flow_action?: string;
+      flow_action_payload?: string;
+    };
+    body?: {
+      text: string;
+    };
+    footer?: {
+      text: string;
+    };
+    header?: {
+      type: "text" | "video" | "image" | "document";
+      document?: MediaObject;
+      image?: MediaObject;
+      video?: MediaObject;
+      text?: string;
+    };
+  };
   hsm: {}; // TODO: belum ketemu dokumentasinya
 }
 
@@ -64,6 +123,6 @@ type MessageObject<T extends MessageType> = T extends keyof AllMessageObject
 
 export interface SendMessageResponse {
   messaging_product: string;
-  contacts: {input:string, wa_id: string}[];
-  messages: {id: string}[];
+  contacts: { input: string; wa_id: string }[];
+  messages: { id: string }[];
 }
