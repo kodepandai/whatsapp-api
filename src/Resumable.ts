@@ -1,5 +1,5 @@
 import { readFile } from "fs/promises";
-import { UploadParams } from "./@types";
+import { UploadParams, UploadResponse, UploadSessionResponse } from "./@types";
 import Wa from "./Wa";
 import WaApi from "./WaApi";
 import { statSync } from "fs";
@@ -9,7 +9,7 @@ export default class Resumable extends WaApi {
   createUploadSession(path: string) {
     const { size: file_length } = statSync(path);
     const file_type = mime.getType(path);
-    return this.fetcher.post({
+    return this.fetcher.post<UploadSessionResponse>({
       url: this.url.CREATE_UPLOAD_SESSION,
       params: {
         file_length,
@@ -20,14 +20,17 @@ export default class Resumable extends WaApi {
   }
 
   async upload({ sessionId, path, offset = 0 }: UploadParams) {
-    const body = await readFile(path);
-    return this.fetcher.post({
+    const buffer = await readFile(path);
+    const body = new Blob([buffer], {
+      type: mime.getType(path) || "text/plain",
+    });
+    return this.fetcher.post<UploadResponse>({
       url: this.url.UPLOAD(sessionId),
       body,
-      // useBearerToken: false,
+      useBearerToken: false,
       isJson: false,
       headers: {
-        // Authorization: `OAuth ${this.config.token}`,
+        Authorization: `OAuth ${this.config.token}`,
         file_offset: offset,
       },
     });

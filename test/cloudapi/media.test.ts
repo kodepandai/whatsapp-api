@@ -1,8 +1,6 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { Wa } from "../../src";
 import path from "path";
-import fs from "fs";
-import { pipeline } from "stream";
 
 var wa: Wa;
 var mediaId: string;

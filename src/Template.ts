@@ -1,5 +1,6 @@
 import {
   CreateTemplateMessageParams,
+  CreateTemplateResponse,
   GetTemplateMessageParams,
 } from "./@types/template";
 import Wa from "./Wa";
@@ -10,7 +11,7 @@ export default class Template extends WaApi {
     if (body.components.findIndex((c) => c.type == "BODY") == -1) {
       throw new Error("component of type BODY is required");
     }
-    return this.fetcher.post({ url: this.url.CREATE_TEMPLATE, body });
+    return this.fetcher.post<CreateTemplateResponse>({ url: this.url.CREATE_TEMPLATE, body });
   }
 
   public getTemplates(params?: GetTemplateMessageParams) {
