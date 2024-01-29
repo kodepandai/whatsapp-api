@@ -29,9 +29,13 @@ export interface CreateTemplateMessageParams {
   category: TemplateCategory;
   allow_category_change?: boolean;
   language: Language;
-  components: (BodyComponent | HeaderComponent | ButtonComponent)[];
+  components: (BodyComponent | HeaderComponent | ButtonComponent | FooterComponent)[];
 }
 
+type FooterComponent = {
+  type: "FOOTER",
+  text: string
+}
 type BodyComponent = {
   type: "BODY";
   /**

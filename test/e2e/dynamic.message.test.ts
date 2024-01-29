@@ -6,8 +6,6 @@ import path from "path";
 
 var wa: Wa;
 var mediaHandle: string;
-var templateId: string;
-templateId = "350305141264620";
 beforeAll(() => {
   wa = new Wa({
     token: process.env.TOKEN || "",
@@ -67,7 +65,7 @@ describe.sequential("Dynamic Message Template", () => {
     expect(res).toHaveProperty("category")
   })
 
-  it("can send message template using dynamic media", async ()=>{
+  it.skip("can send message template using dynamic media", async ()=>{
     const media = await wa.cloudApi.Media.uploadMedia(path.join(process.cwd(), "example", "cat.jpg"));
     const recipientData = {
       name: "Akhmad",

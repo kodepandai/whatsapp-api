@@ -9,6 +9,13 @@ export default class Message extends WaApi {
     recipient_type,
     ...data
   }: SendMessageBody<T>) {
+    if(type == "interactive"){
+    const {interactive_type, ...rest} = data as unknown as SendMessageBody<"interactive">
+      data = {
+        ...rest,
+        type: interactive_type
+      } as any
+    }
     return this.fetcher.post<SendMessageResponse>({
       url: this.url.SEND_MESSAGE,
       body: {
