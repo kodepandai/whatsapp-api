@@ -18,6 +18,9 @@
     },
     "./dist/*": "./dist/*"
   },
+  "files": [
+    "dist/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "MIT",
