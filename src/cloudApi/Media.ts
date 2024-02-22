@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises";
 import WaApi from "../WaApi";
 import Wa from "../Wa";
-import mime from "mime";
+import mime from "mime-types";
 import { DeleteMediaResponse, GetMediaResponse, UploadMediaResponse } from "../@types";
 
 export default class Media extends WaApi {
@@ -11,7 +11,7 @@ export default class Media extends WaApi {
       url: this.url.UPLOAD_MEDIA,
       body: {
         messaging_product: "whatsapp",
-        file: new Blob([file], { type: mime.getType(path) || "text/plain" }),
+        file: new Blob([file], { type: mime.lookup(path) || "text/plain" }),
       },
       forceFormData: true,
     });

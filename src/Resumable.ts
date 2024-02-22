@@ -3,12 +3,12 @@ import { UploadParams, UploadResponse, UploadSessionResponse } from "./@types";
 import Wa from "./Wa";
 import WaApi from "./WaApi";
 import { statSync } from "fs";
-import mime from "mime";
+import mime from "mime-types";
 
 export default class Resumable extends WaApi {
   createUploadSession(path: string) {
     const { size: file_length } = statSync(path);
-    const file_type = mime.getType(path);
+    const file_type = mime.lookup(path);
     return this.fetcher.post<UploadSessionResponse>({
       url: this.url.CREATE_UPLOAD_SESSION,
       params: {
@@ -22,7 +22,7 @@ export default class Resumable extends WaApi {
   async upload({ sessionId, path, offset = 0 }: UploadParams) {
     const buffer = await readFile(path);
     const body = new Blob([buffer], {
-      type: mime.getType(path) || "text/plain",
+      type: mime.lookup(path) || "text/plain",
     });
     return this.fetcher.post<UploadResponse>({
       url: this.url.UPLOAD(sessionId),

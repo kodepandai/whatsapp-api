@@ -26,6 +26,7 @@
   "license": "MIT",
   "devDependencies": {
     "@polka/parse": "1.0.0-next.24",
+    "@types/mime-types": "^2.1.4",
     "@types/node": "^20.11.0",
     "dotenv": "^16.3.1",
     "polka": "1.0.0-next.24",
@@ -35,6 +36,6 @@
   },
   "type": "module",
   "dependencies": {
-    "mime": "^4.0.1"
+    "mime-types": "^2.1.35"
   }
 }

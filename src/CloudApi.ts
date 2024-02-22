@@ -2,7 +2,6 @@ import { readFile } from "fs/promises";
 import { MessageType, SendMessageBody } from "./@types";
 import Wa from "./Wa";
 import WaApi from "./WaApi";
-import mime from "mime";
 import Media from "./cloudApi/Media";
 import Message from "./cloudApi/Message";
 
